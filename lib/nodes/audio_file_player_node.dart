@@ -22,9 +22,14 @@ class AudioFilePlayerNode extends AudioSourceNode {
   bool _isPlaying = false;
   double _position = 0;
   double _duration = 0;
+  int _sampleRate = 0;
+  int _channels = 0;
 
   bool get isPlaying => _isPlaying;
   double get position => _position;
+  int get sampleRate => _sampleRate;
+  int get channels => _channels;
+
   set position(double value) {
     _position = value;
     send<void>('set_position', <dynamic>[_position]);
@@ -56,6 +61,9 @@ class AudioFilePlayerNode extends AudioSourceNode {
         await _channel.invokeMethod<String>('get_format', <dynamic>[path]);
     final format =
         AudioFormat.fromJson(jsonDecode(jsonFormat) as Map<String, dynamic>);
+    // format.sampleRate
+    _channels = format.channels;
+    _sampleRate = format.sampleRate;
     outputPin = OutputPin(format);
     _outputs.add(outputPin);
   }
