@@ -42,7 +42,7 @@ class AudioGraphBuilder {
       'nodes': nodes,
     });
 
-    final id = await _channel.invokeMethod<int>('build', [jsonGraph]);
+    final id = await _channel.invokeMethod<int>('abcdefg', [jsonGraph]);
     if (id != null) {
       return AudioGraph(id);
     }
