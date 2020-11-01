@@ -85,7 +85,7 @@ class AudioGraphBuilderPlugin: MethodChannel.MethodCallHandler, AudioGraphCallba
 
     override fun onMethodCall(call: MethodCall, result: MethodChannel.Result) {
         when(call.method) {
-            "build" -> _build(call,result),
+            "build" -> _build(call,result)
             "abcdefg" -> _build(call, result)
         }
     }
