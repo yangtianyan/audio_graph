@@ -101,12 +101,12 @@ class AudioGradphBuilderPluginTest: MethodChannel.MethodCallHandler {
             for (j in 0..(_outputs.length() - 1)) {
                 var output:JSONObject = _outputs.get(j) as JSONObject
                 Log.e(TAG, "_outputs _outputs _outputs _outputs  ${output}")
-                val _format:JSONObject = output.getJSONObject("format")
-                var channels : Int = _format.getInt("channels")
-                var sample_rate : Int = _format.getInt("sample_rate")
+//                val _format:JSONObject = output.getJSONObject("format")
+//                var channels : Int = _format.getInt("channels")
+//                var sample_rate : Int = _format.getInt("sample_rate")
 //                channels = 2
 //                sample_rate = 44100
-                val format: AudioFormat = AudioFormat(channels = channels,sample_rate = sample_rate)
+                val format: AudioFormat = AudioFormat(channels = 2,sample_rate = 44100)
                 val id: Int = output.getInt("id")
                 val pin : OutputPin = OutputPin(id = id,format = format)
                 outputs.add(pin)
