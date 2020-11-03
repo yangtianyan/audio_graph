@@ -36,6 +36,7 @@ android {
     }
     lintOptions {
         disable 'InvalidPackage'
+        checkReleaseBuilds false
     }
     compileOptions {
         targetCompatibility JavaVersion.VERSION_1_8

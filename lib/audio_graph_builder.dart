@@ -10,7 +10,7 @@ import 'package:flutter/services.dart';
 /// Add AudioNodes to nodes property and connect pins. Then call build()
 class AudioGraphBuilder {
   static const MethodChannel _channel =
-      MethodChannel('audio_graph/graph_builder');
+      MethodChannel('audio_graph/graph_builderaaaa');
 
   /// AudioNodes used by AudioGraph
   final List<AudioNode> nodes = <AudioNode>[];
@@ -42,7 +42,7 @@ class AudioGraphBuilder {
       'nodes': nodes,
     });
 
-    final id = await _channel.invokeMethod<int>('abcdefg', [jsonGraph]);
+    final id = await _channel.invokeMethod<int>('build', [jsonGraph]);
     if (id != null) {
       return AudioGraph(id);
     }

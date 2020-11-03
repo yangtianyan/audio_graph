@@ -31,7 +31,7 @@ class _MyAppState extends State<MyApp> {
 
   // Extract the asset data and export to the app's document directory
   Future<String> setupMusicFile(String assetUri) async {
-    final dir = await getApplicationDocumentsDirectory();
+    final dir = await getTemporaryDirectory();
     final file = File('${dir.path}/$assetUri');
     var data = await rootBundle.load('assets/$assetUri');
     await file.writeAsBytes(data.buffer.asInt8List());
@@ -52,9 +52,7 @@ class _MyAppState extends State<MyApp> {
     // Create AudioFilePlayerNodes from assets
     // You should add these files to example/assets/ folder to test in your local workspace
     final assetFiles = [
-      "test1.mp3",
-      "test2.mp3",
-      "test3.mp3",
+      "cover_48.wav",
     ];
 
     for (final asset in assetFiles) {

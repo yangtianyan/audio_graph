@@ -1,5 +1,6 @@
 package work.ksprogram.audio_graph
 
+import android.util.Log
 import androidx.annotation.NonNull
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.plugin.common.MethodCall
@@ -14,14 +15,14 @@ class AudioGraphPlugin: FlutterPlugin, MethodCallHandler {
     val fileChannel = MethodChannel(flutterPluginBinding.binaryMessenger, "audio_graph/file")
     fileChannel.setMethodCallHandler(AudioFilePlugin())
 
-    val graphBuilderChannel = MethodChannel(flutterPluginBinding.binaryMessenger, "audio_graph/graph_builder")
-    graphBuilderChannel.setMethodCallHandler(AudioGraphBuilderPlugin())
-
-    val graphChannel = MethodChannel(flutterPluginBinding.binaryMessenger, "audio_graph/graph")
-    graphChannel.setMethodCallHandler(AudioGraphPlugin())
+    val graphBuilderChannel = MethodChannel(flutterPluginBinding.binaryMessenger, "audio_graph/graph_builderaaaa")
+    graphBuilderChannel.setMethodCallHandler(AudioGradphBuilderPluginTest())
 
     val nodeChannel = MethodChannel(flutterPluginBinding.binaryMessenger, "audio_graph/node")
     nodeChannel.setMethodCallHandler(AudioNodePlugin())
+
+    val graphChannel = MethodChannel(flutterPluginBinding.binaryMessenger, "audio_graph/graph")
+    graphChannel.setMethodCallHandler(AudioGraphPlugin())
   }
 
   override fun onMethodCall(call: MethodCall, result: Result) {

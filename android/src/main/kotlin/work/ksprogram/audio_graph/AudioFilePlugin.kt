@@ -2,6 +2,7 @@ package work.ksprogram.audio_graph
 
 import android.media.MediaExtractor
 import android.media.MediaFormat
+import android.util.Log
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
@@ -16,6 +17,7 @@ class AudioFilePlugin: MethodChannel.MethodCallHandler {
     override fun onMethodCall(call: MethodCall, result: MethodChannel.Result) {
         when(call.method) {
             "get_duration" -> {
+                Log.e("get_duration", "get_duration:dasdsadasdsadsadsdasdsadasdasdasd");
                 val extractor = MediaExtractor()
                 val path = (call.arguments as ArrayList<Any>)[0] as String
                 extractor.setDataSource(path)
